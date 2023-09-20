@@ -9,9 +9,14 @@ for data in strs: # checks for every word
             list_a.append(letter)
         else:
             if letter in list_a and data.index(letter) == list_a.index(letter):
-                list_b.append(letter)
+                
+                list_b.insert(list_a.index(letter), letter)
+            elif letter in list_b and data.index(letter) == list_a.index(letter):
+                break
             else:
                 continue
+            print(f"Current word: {data}")
+            print(list_b)
     compare = True # flips the indicator after the first letter
 
 print(list_a)
