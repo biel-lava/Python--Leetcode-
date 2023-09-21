@@ -7,9 +7,8 @@ for data in strs: # checks for every word
     for letter in data:
         if compare == False: # first word will store all of its letter in list_a
             list_a.append(letter)
-        else:
+        else: # sorting conditions for the second words onwards
             if letter in list_a and data.index(letter) == list_a.index(letter):
-                
                 list_b.insert(list_a.index(letter), letter)
             elif letter in list_b and data.index(letter) == list_a.index(letter):
                 break
