@@ -11,16 +11,25 @@ s = "{[]}"
 def isValid(s):
     pairs = {
         "(":")",
-        "[":"}",
+        "[":"]",
         "{":"}"
     }
+    
     if len(s) % 2 == 0:
-        for i in range(len(s)): # checks if the current symbol is an opening bracket
-            if s[i] in pairs.keys():
-                print(s[i])
-            else:
-                print("closing")
+        counter = 0 # counts the number of pairs
+        for i in range(len(s)):
+            if s[i] in pairs.keys(): # checks if the current symbol is an opening bracket
+                if pairs[s[i]] in s:
+                    if (s.index(pairs[s[i]]) - i) % 2 > 0:
+                        counter += 1
+                else:
+                    return False            
+        if counter == len(s) / 2:
+            return True
+        else:
+            return False
+
     else: # if odd yung len then obvious na may hindi na closed na parenthesis
         return False
-
+   
 print(isValid(s))
