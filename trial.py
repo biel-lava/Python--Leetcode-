@@ -1,2 +1,4 @@
-print((0)%2)
-print(len(" "))
+list = ["elsa"]
+print(list)
+list.pop()
+print(list)

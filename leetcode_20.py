@@ -66,3 +66,22 @@ def isValid(s):
         return False
 
 print(isValid(s))
+
+# CORRECT SOLUTION (most efficient)
+
+def isValid(s):
+    pairs = {
+        "(":")",
+        "[":"]",
+        "{":"}"
+    }
+
+    opening = []
+
+    for symbol in s:
+        if symbol in pairs.keys():
+            opening.append(symbol)
+        elif opening == [] or symbol != pairs[opening.pop()]:
+            return False
+    
+    return opening == []
